@@ -1,0 +1,160 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background-color: #d32f2f;
+    color: white;
+    padding: 15px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header h1 {
+    display: inline;
+}
+
+nav {
+    float: right;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.login-btn {
+    background: white;
+    color: #d32f2f;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/* Search Section */
+.search-section {
+    text-align: center;
+    padding: 30px 0;
+    background-color: white;
+}
+
+.coral {
+    background-color: #ffbcbc;
+}
+
+.search-section form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-section input, .search-section select, .search-button {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Job Listings */
+.job-listings {
+    padding: 30px 0;
+}
+
+.job {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.job a {
+    color: #d32f2f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #ffd6e1, #ffd2db);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Authentication Styles */
+.auth-section {
+    text-align: center;
+    padding: 30px 0;
+    background-color: white;
+}
+
+.auth-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-section input {
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-section p {
+    margin-top: 10px;
+}
+
+input[type="text"], input[type="number"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+textarea {
+    width: 40%;
+    resize: vertical;
+    height: 150px;
+}
