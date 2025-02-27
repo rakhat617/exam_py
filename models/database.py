@@ -6,13 +6,14 @@ def create_jobs_db():
         conn.execute("""
                 CREATE TABLE IF NOT EXISTS jobs(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                title TEXT NOT NULL UNIQUE,
-                experience TEXT NOT NULL UNIQUE,
-                employment TEXT NOT NULL UNIQUE,
-                format TEXT NOT NULL UNIQUE,
-                city TEXT NOT NULL UNIQUE,     
-                description TEXT NOT NULL UNIQUE,
-                salary TEXT NOT NULL UNIQUE
+                email TEXT NOT NULL,
+                title TEXT NOT NULL,
+                experience TEXT NOT NULL,
+                employment TEXT NOT NULL,
+                format TEXT NOT NULL,
+                city TEXT NOT NULL,     
+                description TEXT NOT NULL,
+                salary TEXT NOT NULL
                 )
         """)
 
@@ -27,8 +28,9 @@ def create_users_db():
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 email TEXT NOT NULL UNIQUE,
                 password TEXT NOT NULL,
-                name TEXT NOT NULL UNIQUE,
-                surname TEXT NOT NULL UNIQUE
+                name TEXT NOT NULL,
+                surname TEXT NOT NULL,
+                image TEXT
                 )
         """)
 

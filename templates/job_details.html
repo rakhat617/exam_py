@@ -9,35 +9,51 @@
 <body>
     <header>
         <div class="container">
-            <h1>HandHunter</h1>
+            <a class="logo" href="{{ url_for('get_main') }}"><h1>HandHunter</h1></a>
             <nav>
-                <a href="">Home</a>
-                <a href="">Jobs</a>
+                <a href="{{ url_for('get_main') }}">Home</a>
+                <a href="{{ url_for('get_jobs') }}">Jobs</a>
                 <a href="">Companies</a>
                 <a href="">Contact</a>
-                <button class="login-btn">Account</button>
+                <a href="{{ url_for('get_account') }}"><button class="login-btn">Account</button></a>
             </nav>
         </div>
     </header>
 
-    <section class="job-listings">
-        <div class="container">
-            <h2>Latest Job Openings</h2>
-
-            <div class="job">
-                <h3>Software Engineer</h3>
-                <p>Company: <strong>TechCorp</strong></p>
-                <p>Location: Moscow</p>
-                <a href="">Apply Now</a>
+    <div class="container">
+        {% if job %}
+            <div class="lot">
+                <h2>
+                    Job title: {{ job[2] }}
+                </h2>               
+                <h3>
+                    Experience required: {{ job[3] }}
+                </h3>
+                <h3>
+                    Employment type: {{ job[4] }}
+                </h3>
+                <h3>
+                    Work format: {{ job[5] }}
+                </h3>
+                <h3>
+                    City: {{ job[6] }}
+                </h3>
+                <h3>
+                    Description: {{ job[7] }}
+                </h3>
+                <h3>
+                    Salary: {{ job[8] }}
+                </h3>
+                <div>
+                    <form action="" method="post">
+                        <label for="description">Leave your candidature:</label>
+                        <textarea id="description" name="message" required></textarea>
+                        <a href="{{ url_for('message') }}"><button class="login-btn">Message</button></a>
+                    </form>
+                </div>
             </div>
+        {% endif %}
+    </div>
 
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 JobHunter. All Rights Reserved.</p>
-        </div>
-    </footer>
 </body>
 </html>

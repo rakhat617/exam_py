@@ -9,10 +9,10 @@
 <body>
     <header>
         <div class="container">
-            <h1>HandHunter</h1>
+            <a class="logo" href="{{ url_for('get_main') }}"><h1>HandHunter</h1></a>
             <nav>
-                <a href="">Home</a>
-                <a href="">Jobs</a>
+                <a href="{{ url_for('get_main') }}">Home</a>
+                <a href="{{ url_for('get_jobs') }}">Jobs</a>
                 <a href="">Companies</a>
                 <a href="">Contact</a>
             </nav>
@@ -22,6 +22,9 @@
     <section class="auth-section">
         <div class="container">
             <h2>Register</h2>
+            {% if error %}
+                <h2> {{ error }} </h2>
+            {% endif %}
             <form action="/register" method="post">
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="text" name="surname" placeholder="Surname" required>

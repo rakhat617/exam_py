@@ -9,13 +9,13 @@
 <body>
     <header>
         <div class="container">
-            <h1>HandHunter</h1>
+            <a class="logo" href="{{ url_for('get_main') }}"><h1>HandHunter</h1></a>
             <nav>
-                <a href="">Home</a>
-                <a href="">Jobs</a>
+                <a href="{{ url_for('get_main') }}">Home</a>
+                <a href="{{ url_for('get_jobs') }}">Jobs</a>
                 <a href="">Companies</a>
                 <a href="">Contact</a>
-                <button class="login-btn">Account</button>
+                <a href="{{ url_for('get_account') }}"><button class="login-btn">Account</button></a>
             </nav>
         </div>
     </header>
@@ -23,7 +23,7 @@
     <section class="coral search-section">
         <div class="container">
             <h2>Post Your Job Vacancy</h2>
-            <form action="" method="get">
+            <form action="/post" method="get">
                 <button class="button">Create a Vacancy</button>
             </form>
         </div>
@@ -32,45 +32,32 @@
     <section class="search-section">
         <div class="container">
             <h2>Find Your Dream Job</h2>
-            <form action="" method="get">
+            <form action="/search" method="post">
                 <input type="text" name="search" placeholder="Enter job title or company">
                 <select name="location">
                     <option value="">Select location</option>
-                    <option value="moscow">Moscow</option>
-                    <option value="spb">Saint Petersburg</option>
-                    <option value="remote">Remote</option>
+                    <option value="karaganda">Karaganda</option>
+                    <option value="astana">Astana</option>
                 </select>
                 <button type="submit" class="search-button">Search</button>
             </form>
         </div>
     </section>
 
-    <section class="job-listings">
-        <div class="container">
-            <h2>Latest Job Openings</h2>
-
-            <div class="job">
-                <h3>Software Engineer</h3>
-                <p>Company: <strong>TechCorp</strong></p>
-                <p>Location: Moscow</p>
-                <a href="">Apply Now</a>
+    {% if jobs %}
+        <section class="job-listings">
+            <div class="container">
+                <h2>Latest Job Openings</h2>
+                {% for job in jobs %}
+                    <div class="job">
+                        <h3>{{ job[2] }}</h3>
+                        <p>Salary: <strong>{{ job[8] }}</strong></p>
+                        <p>Location: {{ job[6] }}</p>
+                        <a href=" {{ url_for('get_details', id = job[0])}} " class="button">Details</a>
+                    </div>
+                {% endfor %}
             </div>
-
-            <div class="job">
-                <h3>Data Analyst</h3>
-                <p>Company: <strong>DataExperts</strong></p>
-                <p>Location: Remote</p>
-                <a href="">Apply Now</a>
-            </div>
-
-            <div class="job">
-                <h3>Project Manager</h3>
-                <p>Company: <strong>BizSolutions</strong></p>
-                <p>Location: Saint Petersburg</p>
-                <a href="">Apply Now</a>
-            </div>
-        </div>
-    </section>
+    {% endif %}
 
     <footer>
         <div class="container">

@@ -9,12 +9,13 @@
 <body>
     <header>
         <div class="container">
-            <h1>HandHunter</h1>
+            <a class="logo" href="{{ url_for('get_main') }}"><h1>HandHunter</h1></a>
             <nav>
-                <a href="">Home</a>
-                <a href="">Jobs</a>
+                <a href="{{ url_for('get_main') }}">Home</a>
+                <a href="{{ url_for('get_jobs') }}">Jobs</a>
                 <a href="">Companies</a>
                 <a href="">Contact</a>
+                <a href="{{ url_for('get_account') }}"><button class="login-btn">Account</button></a>
             </nav>
         </div>
     </header>
@@ -25,9 +26,20 @@
             <form action="/post" method="post">
                 <input type="text" name="title" placeholder="Job title" required>
                 <input type="text" name="experience" placeholder="Experience required" required>
-                <input type="text" name="employment" placeholder="Employment type (fulltime/parttime/etc)" required>
-                <input type="text" name="format" placeholder="Job format (office/remote/etc)" required>
-                <input type="text" name="city" placeholder="City" required>
+                <select name="employment">
+                    <option value="fulltime">Full-time</option>
+                    <option value="parttime">Part-time</option>
+                </select>
+                <select name="format">
+                    <option value="offline">Offline</option>
+                    <option value="remote">Remote</option>
+                    <option value="hybrid">Hybrid</option>
+                </select>
+                <select name="city">
+                    <option value="karaganda">Karaganda</option>
+                    <option value="astana">Astana</option>
+                </select>
+                <input type="text" name="salary" placeholder="Salary" required>
                 <textarea id="description" name="description" placeholder="Job description" required></textarea>
                 <button type="submit" class="button">Post</button>
             </form>
