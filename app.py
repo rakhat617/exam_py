@@ -50,7 +50,7 @@ def get_reg():
             cursor.execute('INSERT INTO users (email, password, name, surname) VALUES (?, ?, ?, ?)', (email, password, name, surname))
             session["email"] = email
             session["name"] = name
-            session["name"] = surname
+            session["surname"] = surname
             conn.commit()
             conn.close()
             return redirect(url_for("get_account"))
@@ -71,7 +71,6 @@ def get_log():
         conn.close()
         if user:
             session["email"] = user[1]
-            print(session["email"])
             session["name"] = user[3]
             session["surname"] = user[4]
             return redirect(url_for("get_account"))
@@ -128,7 +127,7 @@ def log_out():
     session.pop("email", None)
     session.pop("name", None)
     session.pop("surname", None)
-    return render_template("index.html")
+    return redirect(url_for("get_main"))
 
 @app.route("/details/<id>", methods=["GET", "POST"])
 def get_details(id):
@@ -143,7 +142,6 @@ def get_details(id):
 def search_results():
     search_query = request.form.get("search", type=str)
     search_location = request.form.get("location")
-    print(search_query)
     connection = sqlite3.connect("jobs.db") 
     cursor = connection.cursor()
     cursor.execute(" SELECT * FROM jobs ")
