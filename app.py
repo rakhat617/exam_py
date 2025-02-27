@@ -71,6 +71,7 @@ def get_log():
         conn.close()
         if user:
             session["email"] = user[1]
+            print(session["email"])
             session["name"] = user[3]
             session["surname"] = user[4]
             return redirect(url_for("get_account"))
