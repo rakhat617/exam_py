@@ -16,6 +16,10 @@ app.secret_key = "nuggets123"
 def get_main():
     return render_template("index.html")
 
+@app.route("/jobs", methods=["GET", "POST"])
+def get_jobs():
+    return render_template("jobs.html")
+
 @app.route("/register", methods=["GET", "POST"])
 def get_reg():
     return render_template("reg.html")
@@ -38,9 +42,11 @@ def log_out():
 
 @app.route("/details", methods=["GET", "POST"])
 def get_details():
-    return render_template("post_details.html")
+    return render_template("job_details.html")
 
-
+@app.route("/search", methods=["GET", "POST"])
+def search_job():
+    return render_template("jobs.html")
 
 
 
